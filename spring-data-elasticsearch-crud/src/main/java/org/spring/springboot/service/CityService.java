@@ -65,4 +65,9 @@ public interface CityService {
      * @return
      */
     List<City> findByDescriptionLike(String description);
+
+    /**
+     * 删除
+     */
+    int deleteById(Long id);
 }

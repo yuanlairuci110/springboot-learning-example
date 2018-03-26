@@ -99,4 +99,15 @@ public class CityRestController {
     public List<City> findByDescriptionLike(@RequestParam(value = "description") String description) {
         return cityService.findByDescriptionLike(description);
     }
+
+    /**
+     * 删除 通过Id删除
+     *
+     * @param description
+     * @return
+     */
+    @RequestMapping(value = "/api/city/delete/id", method = RequestMethod.GET)
+    public int deleteById(@RequestParam(value = "id") Long id) {
+        return cityService.deleteById(id);
+    }
 }

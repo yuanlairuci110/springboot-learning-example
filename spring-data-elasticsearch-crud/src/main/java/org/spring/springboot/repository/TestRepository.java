@@ -17,4 +17,7 @@ public interface TestRepository extends ElasticsearchRepository<City,Long> {
      * @return
      */
     List<City> findByNameAndScore(String description, Integer score);
+
+    int deleteCityById(Long id);
+
 }

@@ -65,4 +65,9 @@ public class CityESServiceImpl implements CityService {
         return cityRepository.findByDescriptionLike(description, pageable).getContent();
     }
 
+    @Override
+    public int deleteById(Long id) {
+        return testRepository.deleteCityById(id);
+    }
+
 }
