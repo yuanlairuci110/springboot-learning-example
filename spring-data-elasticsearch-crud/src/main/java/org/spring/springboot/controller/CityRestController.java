@@ -62,6 +62,17 @@ public class CityRestController {
      * @param description
      * @return
      */
+    @RequestMapping(value = "/api/city/id/find", method = RequestMethod.GET)
+    public List<City> findById(@RequestParam(value = "id") Long id) {
+        return cityService.findById(id);
+    }
+
+    /**
+     * 查询城市描述
+     *
+     * @param description
+     * @return
+     */
     @RequestMapping(value = "/api/city/description/find", method = RequestMethod.GET)
     public List<City> findByDescription(@RequestParam(value = "description") String description) {
         return cityService.findByDescription(description);

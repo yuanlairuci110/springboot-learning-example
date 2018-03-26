@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.springboot.domain.City;
 import org.spring.springboot.repository.CityRepository;
+import org.spring.springboot.repository.TestRepository;
 import org.spring.springboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -32,14 +32,22 @@ public class CityESServiceImpl implements CityService {
     @Autowired
     CityRepository cityRepository;
 
+    @Autowired
+    TestRepository testRepository;
+
     public Long saveCity(City city) {
-        City cityResult = cityRepository.save(city);
+        City cityResult = testRepository.save(city);
         return cityResult.getId();
     }
 
     public List<City> findByDescriptionAndScore(String description, Integer score) {
-        return cityRepository.findByDescriptionAndScore(description, score);
+        return testRepository.findByNameAndScore(description, score);
     }
+
+    public List<City> findById(Long id) {
+        return cityRepository.findById(id);
+    }
+
 
     public List<City> findByDescriptionOrScore(String description, Integer score) {
         return cityRepository.findByDescriptionOrScore(description, score);

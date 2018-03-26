@@ -3,7 +3,6 @@ package org.spring.springboot.repository;
 import org.spring.springboot.domain.City;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.elasticsearch.annotations.Query;
 import org.springframework.data.elasticsearch.repository.ElasticsearchRepository;
 
 import java.util.List;
@@ -30,8 +29,16 @@ public interface CityRepository extends ElasticsearchRepository<City, Long> {
      * @param score
      * @return
      */
-    List<City> findByDescriptionOrScore(String description, Integer score);
+    List<City> findById(Long id);
 
+    /**
+     * OR 语句查询
+     *
+     * @param description
+     * @param score
+     * @return
+     */
+    List<City> findByDescriptionOrScore(String description, Integer score);
     /**
      * 查询城市描述
      *

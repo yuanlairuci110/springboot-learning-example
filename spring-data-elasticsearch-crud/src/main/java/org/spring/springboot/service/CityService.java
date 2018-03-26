@@ -29,6 +29,11 @@ public interface CityService {
     List<City> findByDescriptionAndScore(String description, Integer score);
 
     /**
+     * 一个查询
+     */
+    List<City> findById(Long id);
+
+    /**
      * OR 语句查询
      *
      * @param description
