@@ -14,6 +14,8 @@
 		<module>springboot-helloworld</module>
 		<!-- Spring Boot 之配置文件详解 -->
 		<module>springboot-properties</module>
+		<!-- Spring Boot 之配置文件详解 -->
+		<module>springboot-properties-two</module>
 		<!-- Spring Boot 之配置注解使用 -->
 		<module>springboot-configuration</module>
 
