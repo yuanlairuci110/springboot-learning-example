@@ -6,7 +6,7 @@
     <groupId>springboot</groupId>
     <artifactId>springboot-helloworld</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-helloworld :: HelloWorld Demo</name>
+    <name>springboot-helloworld</name>
 
     <!-- Spring Boot 启动父依赖 -->
     <parent>
@@ -29,4 +29,18 @@
             <version>4.12</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.2</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
