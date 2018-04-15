@@ -60,6 +60,11 @@
 		<module>chapter-4-spring-boot-validating-form-input</module>
 		<!-- 第五章数据分页排序案例 -->
 		<module>chapter-5-spring-boot-paging-sorting</module>
+		<!-- 用spring Restdocs创建API文档 -->
+		<module>springboot-restdocs-api</module>
+
+		<!-- 用spring websocket 推送消息 -->
+		<module>springboot-websocket</module>
 
 	</modules>
 
