@@ -66,6 +66,9 @@
 		<!-- 用spring websocket 推送消息 -->
 		<module>springboot-websocket</module>
 
+		<!--springboot-rabbitmq-->
+		<module>springboot-rabbitmq</module>
+
 	</modules>
 
 </project>
