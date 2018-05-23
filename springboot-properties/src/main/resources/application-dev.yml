@@ -1,0 +1,12 @@
+## 家乡属性 Dev
+#home.province=ZheJiang
+#home.city=WenLing
+#home.desc=dev: I'm living in ${home.province} ${home.city}.
+home:
+  province: ZheJiang
+  city: WenLing
+  desc: dev, I'm living in ${home.province} ${home.city}.
+my:
+  name: xiaowang
+  age: 15
+  sex: a

@@ -1,0 +1,12 @@
+## 家乡属性 Prod
+#home.province=ZheJiang
+#home.city=WenLing
+#home.desc=prod: I'm living in ${home.province} ${home.city}.
+home:
+  province: ZheJiang
+  city: WenLing
+  desc: prod, I'm living in ${home.province} ${home.city}.
+my:
+  name:  a: xiaominghehe
+  age: 12
+  sex: 男
