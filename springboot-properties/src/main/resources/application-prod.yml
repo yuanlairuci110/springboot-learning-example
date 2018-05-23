@@ -7,6 +7,6 @@ home:
   city: WenLing
   desc: prod, I'm living in ${home.province} ${home.city}.
 my:
-  name:  a: xiaominghehe
+  name:  xiaominghehe
   age: 12
   sex: 男
