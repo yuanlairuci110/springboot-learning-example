@@ -19,19 +19,19 @@ public class Application implements CommandLineRunner {
 
 	private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
-    @Autowired
-    private HomeProperties homeProperties;
+	@Autowired
+	private HomeProperties homeProperties;
 
-    public static void main(String[] args) {
-        // 程序启动入口
-        // 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
-        SpringApplication.run(Application.class, args);
-    }
+	public static void main(String[] args) {
+		// 程序启动入口
+		// 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件
+		SpringApplication.run(Application.class, args);
+	}
 
-    @Override
-    public void run(String... args) throws Exception {
-        System.out.println("\n" + homeProperties.toString());
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("\n" + homeProperties.toString());
 		logger.info("homeProperties参数 : {}", homeProperties);
-        System.out.println();
-    }
+		System.out.println();
+	}
 }
