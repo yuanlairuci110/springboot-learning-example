@@ -10,3 +10,5 @@ my:
   name: xiaowang
   age: 15
   sex: a
+logging:
+  config: classpath:log/logback-dev.xml

@@ -1,5 +1,7 @@
 package org.spring.springboot;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.spring.springboot.property.HomeProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -15,6 +17,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
+	private static final Logger logger = LoggerFactory.getLogger(Application.class);
+
     @Autowired
     private HomeProperties homeProperties;
 
@@ -27,6 +31,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("\n" + homeProperties.toString());
+		logger.info("homeProperties参数 : {}", homeProperties);
         System.out.println();
     }
 }

@@ -10,3 +10,5 @@ my:
   name:  xiaominghehe
   age: 12
   sex: 男
+logging:
+  config: classpath:log/logback-prod.xml
