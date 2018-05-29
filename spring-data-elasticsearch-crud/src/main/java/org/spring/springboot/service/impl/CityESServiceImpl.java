@@ -1,5 +1,8 @@
 package org.spring.springboot.service.impl;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spring.springboot.domain.City;
@@ -11,8 +14,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * 城市 ES 业务逻辑实现类
  * <p>
@@ -21,53 +22,54 @@ import java.util.List;
 @Service
 public class CityESServiceImpl implements CityService {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(CityESServiceImpl.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(CityESServiceImpl.class);
 
-    // 分页参数 -> TODO 代码可迁移到具体项目的公共 common 模块
-    private static final Integer pageNumber = 0;
-    private static final Integer pageSize = 10;
-    Pageable pageable = new PageRequest(pageNumber, pageSize);
+	// 分页参数 -> TODO 代码可迁移到具体项目的公共 common 模块
+	private static final Integer pageNumber = 0;
+	private static final Integer pageSize = 10;
+	Pageable pageable = new PageRequest(pageNumber, pageSize);
 
-    // ES 操作类
-    @Autowired
-    CityRepository cityRepository;
+	// ES 操作类
+	@Autowired
+	CityRepository cityRepository;
 
-    @Autowired
-    TestRepository testRepository;
+	@Autowired
+	TestRepository testRepository;
 
-    public Long saveCity(City city) {
-        City cityResult = testRepository.save(city);
-        return cityResult.getId();
-    }
+	public Long saveCity(City city) {
+		City cityResult = testRepository.save(city);
+		return cityResult.getId();
+	}
 
-    public List<City> findByDescriptionAndScore(String description, Integer score) {
-        return testRepository.findByNameAndScore(description, score);
-    }
+	public List<City> findByDescriptionAndScore(String description, Integer score) {
+		return testRepository.findByNameAndScore(description, score);
+	}
 
-    public List<City> findById(Long id) {
-        return cityRepository.findById(id);
-    }
+	public City findById(Long id) {
+		Optional<City> optionalCity = cityRepository.findById(id);
+		City city = new City();
+		return city;
+	}
 
+	public List<City> findByDescriptionOrScore(String description, Integer score) {
+		return cityRepository.findByDescriptionOrScore(description, score);
+	}
 
-    public List<City> findByDescriptionOrScore(String description, Integer score) {
-        return cityRepository.findByDescriptionOrScore(description, score);
-    }
+	public List<City> findByDescription(String description) {
+		return cityRepository.findByDescription(description, pageable).getContent();
+	}
 
-    public List<City> findByDescription(String description) {
-        return cityRepository.findByDescription(description, pageable).getContent();
-    }
+	public List<City> findByDescriptionNot(String description) {
+		return cityRepository.findByDescriptionNot(description, pageable).getContent();
+	}
 
-    public List<City> findByDescriptionNot(String description) {
-        return cityRepository.findByDescriptionNot(description, pageable).getContent();
-    }
+	public List<City> findByDescriptionLike(String description) {
+		return cityRepository.findByDescriptionLike(description, pageable).getContent();
+	}
 
-    public List<City> findByDescriptionLike(String description) {
-        return cityRepository.findByDescriptionLike(description, pageable).getContent();
-    }
-
-    @Override
-    public int deleteById(Long id) {
-        return testRepository.deleteCityById(id);
-    }
+	@Override
+	public int deleteById(Long id) {
+		return testRepository.deleteCityById(id);
+	}
 
 }
