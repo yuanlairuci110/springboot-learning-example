@@ -2,12 +2,17 @@ package org.spring.springboot.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.spring.springboot.filter.MyFilterService;
 import org.spring.springboot.web.ServletTest;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author lichao
@@ -35,5 +40,19 @@ public class BeanFactory {
 				logger.info(beanName);
 			}
 		};
+	}
+
+	@Bean
+	public FilterRegistrationBean timeFilter() {
+		FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+
+		MyFilterService myFilterService = new MyFilterService();
+		registrationBean.setFilter(myFilterService);
+
+		List<String> urls = new ArrayList<>();
+		urls.add("/servletTest/*");
+		registrationBean.setUrlPatterns(urls);
+
+		return registrationBean;
 	}
 }
